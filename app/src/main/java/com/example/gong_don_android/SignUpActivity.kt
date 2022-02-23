@@ -23,6 +23,8 @@ class SignUpActivity : AppCompatActivity() {
 
             signupService.requestSignUp(data).enqueue(object : Callback<SignUpResult>{
                 override fun onResponse(call: Call<SignUpResult>, response: Response<SignUpResult>) {
+                    val result = response.body()
+                    Log.d("result", "${result}")
                     Log.d("SIGNUP", signup?.code.toString())
                     Log.d("SIGNUP", signup?.massage.toString())
                 }
