@@ -11,8 +11,5 @@ data class SignUp(
     val password: String? = null
 )
 data class SignUpResult(
-    @SerializedName("code")
-    var code:String? = null,
-    @SerializedName("massage")
-    var massage:String? = null
+    var result:String? = null
 )
