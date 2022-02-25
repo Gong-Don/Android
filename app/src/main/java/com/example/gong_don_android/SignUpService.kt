@@ -9,8 +9,7 @@ import retrofit2.http.*
 
 interface SignUpService {
     @POST("signup")
-    @Headers("accept: application/json",
-        "content-type: application/json")
+    @Headers("accept: application/json", "content-type: application/json")
 
     fun requestSignUp(
         @Body jsonparams: SignUp
