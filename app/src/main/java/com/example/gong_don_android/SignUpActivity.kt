@@ -12,27 +12,27 @@ import retrofit2.Response
 import retrofit2.Retrofit
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var signupService : ApiService;
-    private lateinit var authService : ApiService;
+    private lateinit var retrofitService : ApiService;
     private lateinit var retrofit : Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         var accessToken = ""
-        var email = input_email.text.toString()
+        var email = ""
 
         initRetrofit()
 
         join_submit.setOnClickListener() {
             var name = input_nickname.text.toString()
             var password = input_pw.text.toString()
+            email = input_email.text.toString()
 
             val data = SignUp(name, email, password, accessToken)
 
-            signupService.requestSignUp(data).enqueue(object : Callback<SignUpResult>{
+            retrofitService.requestSignUp(data).enqueue(object : Callback<SignUpResult>{
                 override fun onResponse(call: Call<SignUpResult>, response: Response<SignUpResult>) {
-                    Log.d("SIGNUP RESULT", "${response.body()!!.code}, ${response.body()!!.message}")
+                    Log.d("SIGNUP RESULT", "${response.body()?.code}, ${response.body()?.message}")
                 }
                 override fun onFailure(call: Call<SignUpResult>, t: Throwable) {
                     Log.e("SIGNUP", t.message.toString())
@@ -42,11 +42,12 @@ class SignUpActivity : AppCompatActivity() {
 
         auth_btn.setOnClickListener() {
             accessToken = ""
+            email = input_email.text.toString()
             val data = Auth(email)
 
-            authService.requestAuth(data).enqueue(object : Callback<AuthResult>{
+            retrofitService.requestAuth(data).enqueue(object : Callback<AuthResult>{
                 override fun onResponse(call: Call<AuthResult>, response: Response<AuthResult>) {
-                    Log.d("AUTH RESULT", "${response.body()!!.accessToken}}")
+                    Log.d("AUTH RESULT", "${response.body()?.accessToken}")
                     accessToken = response.body()!!.accessToken.toString()
                 }
                 override fun onFailure(call: Call<AuthResult>, t: Throwable) {
@@ -57,6 +58,6 @@ class SignUpActivity : AppCompatActivity() {
     }
     private fun initRetrofit(){
         retrofit = RetrofitClient.create()
-        signupService = retrofit.create(ApiService::class.java)
+        retrofitService = retrofit.create(ApiService::class.java)
     }
 }

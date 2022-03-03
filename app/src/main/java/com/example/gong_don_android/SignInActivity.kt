@@ -42,6 +42,15 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+
+        login_btn.setOnClickListener{
+
+            
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
     private fun initRetrofit(){
         retrofit = RetrofitClient.create()
