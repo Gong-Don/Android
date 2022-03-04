@@ -11,22 +11,30 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_gravity="center"
-        android:text="gong-don"
-        android:textColor="#171717"
-        android:textSize="23sp">
+        android:text="공돈"
+        android:textStyle="bold"
+        android:textColor="#4C86F0"
+        android:textSize="25sp">
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="공부하면서 돈벌자"
+        android:textColor="#8F9090"
+        android:textSize="15sp">
     </TextView>
 
     <EditText
         android:id="@+id/input_id"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@android:color/transparent"
         android:hint="아이디"
-        android:inputType="textMultiLine"
-        android:singleLine="false"
+        android:singleLine="true"
         android:textColor="#000000"
         android:textSize="14sp">
 
@@ -49,8 +57,7 @@
         android:layout_marginRight="15dp"
         android:background="@android:color/transparent"
         android:hint="비밀번호"
-        android:inputType="textMultiLine"
-        android:singleLine="false"
+        android:singleLine="true"
         android:textColor="#000000"
         android:textSize="14sp">
 
