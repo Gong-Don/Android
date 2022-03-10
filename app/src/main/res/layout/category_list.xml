@@ -12,5 +12,5 @@
         android:gravity="center"
         android:text="IT"
         android:textColor="#8F9090"
-        android:textSize="12sp" />
+        android:textSize="13sp" />
 </LinearLayout>

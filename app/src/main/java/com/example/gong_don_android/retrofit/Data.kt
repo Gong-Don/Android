@@ -40,10 +40,6 @@ data class AuthResult(
     var accessToken:String? = null
 )
 
-data class PostList(
-    val post: ArrayList<Post>
-)
-
 data class Post(
     @SerializedName("category")
     val category: Category,
@@ -52,7 +48,7 @@ data class Post(
     @SerializedName("date")
     val date: String,
     @SerializedName("likeCnt")
-    val likeCnt: Boolean,
+    val likeCnt: Int,
     @SerializedName("matchingStatus")
     val matchingStatus: Boolean,
     @SerializedName("postId")
@@ -66,8 +62,14 @@ data class Post(
     @SerializedName("wrtName")
     val wrtName: String
 )
-enum class Category{
-    DESIGN, IT, MEDIA, STUDY
+enum class Category(val cate: String){
+    ALL("전체"),
+    DESIGN("디자인"),
+    IT("IT"),
+    MEDIA("미디어"),
+    TRANSLATION("번역"),
+    DOCUMENT("문서"),
+    STUDY("스터디")
 }
 
 data class WorkData(
