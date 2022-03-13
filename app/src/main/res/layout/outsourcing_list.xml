@@ -9,24 +9,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/work_edge"
         android:gravity="center_vertical"
         android:id="@+id/work_button"
         android:orientation="vertical">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/work_name"
+            android:id="@+id/outsourcing_name"
             android:layout_width="380dp"
             android:layout_height="30dp"
             android:gravity="center_vertical"
             android:paddingLeft="20dp"
-            android:text="Work1"
+            android:text="Outsourcing1"
             android:textColor="#000"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/work_context"
+            android:id="@+id/outsourcing_context"
             android:layout_width="380dp"
             android:layout_height="40dp"
             android:gravity="center_vertical"
@@ -36,14 +35,15 @@
             android:textSize="16dp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/work_date"
-            android:layout_width="380dp"
-            android:paddingTop="10dp"
-            android:paddingLeft="20dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="Date1"
-            android:textColor="#000"
+            android:id="@+id/outsourcing_state"
+            android:layout_width="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@drawable/outsourcing_state_edge"
+            android:text="State1"
+            android:textColor="#FFF"
             android:textSize="12dp"/>
 
     </LinearLayout>

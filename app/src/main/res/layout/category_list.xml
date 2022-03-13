@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/category_view"
+    android:layout_width="60dp"
+    android:layout_height="50dp"
+    android:background="@drawable/cate">
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="IT"
+        android:textColor="#8F9090"
+        android:textSize="13sp" />
+</LinearLayout>

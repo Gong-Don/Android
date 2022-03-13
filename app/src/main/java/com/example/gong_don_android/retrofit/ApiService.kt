@@ -5,21 +5,31 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
-    @POST("signin")
+    @POST("api/user/signin")
     @Headers("accept: application/json", "content-type: application/json")
     fun requestLogIn(
         @Body jsonparams: SignIn
     ) : Call<SignInResult>
 
-    @POST("signup")
+    @POST("api/user/signup")
     @Headers("accept: application/json", "content-type: application/json")
     fun requestSignUp(
         @Body jsonparams: SignUp
     ) : Call<SignUpResult>
 
-    @POST("auth")
+    @POST("api/user/auth")
     @Headers("accept: application/json", "content-type: application/json")
     fun requestAuth(
         @Body jsonparams: Auth
     ) : Call<AuthResult>
+
+    @GET("api/post/all")
+    @Headers("accept: application/json", "content-type: application/json")
+    fun getPostAll() : Call<List<Post>>;
+
+    @GET("api/post/category/{category}")
+    @Headers("accept: application/json", "content-type: application/json")
+    fun getPostCategory(
+       @Path("category") category : String
+    ) : Call<List<Post>>;
 }

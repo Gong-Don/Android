@@ -32,7 +32,7 @@ class SignInActivity : AppCompatActivity() {
             val data = SignIn(id, password)
             signinService.requestLogIn(data).enqueue(object : Callback<SignInResult> {
                 override fun onResponse(call: Call<SignInResult>, response: Response<SignInResult>) {
-                    Log.d("SIGNIN RESULT", "${response.body()!!.userId}")
+                    Log.d("SIGNIN RESULT", "${response.body()?.userId}")
                 }
                 override fun onFailure(call: Call<SignInResult>, t: Throwable) {
                     Log.e("SIGNIN", t.message.toString())
@@ -52,7 +52,7 @@ class SignInActivity : AppCompatActivity() {
 
                 signinService.requestLogIn(data).enqueue(object : Callback<SignInResult> {
                     override fun onResponse(call: Call<SignInResult>, response: Response<SignInResult>) {
-                        Log.d("SIGNIN RESULT", "${response.body()!!.userId}")
+                        Log.d("SIGNIN RESULT", "${response.body()?.userId}")
                         val auto = getSharedPreferences("autoLogin", MODE_PRIVATE)
                         val autoLoginEdit = auto.edit()
                         autoLoginEdit.putString("id", id)
