@@ -101,7 +101,7 @@ class SignUpActivity : AppCompatActivity() {
         return email.matches(repExp)
     }
     fun pwPattern(pw: String): Boolean {//비밀번호
-            val repExp = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@\$!%*?&]{8,20}\$")
+        val repExp = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\$!%*?&])[A-Za-z\\d@\$!%*?&]{8,20}\$")
         return pw.matches(repExp)
     }
     fun namePattern(pw: String): Boolean {//닉네임

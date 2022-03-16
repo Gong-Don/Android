@@ -8,100 +8,112 @@
     android:padding="10dp"
     tools:context=".PostActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
         android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:text="제목"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button"
-            android:background="@drawable/button_round"
-            android:layout_width="150dp"
-            android:layout_marginRight="5dp"
+        </TextView>
+        <EditText
+            android:id="@+id/postTitle"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="150dp"
-            android:layout_marginLeft="5dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_round"
-            android:textColor="@color/white"
-
-            android:text="Button" />
+            android:hint="제목 입력" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:text="카테고리"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
+        </TextView>
+        <TextView
+            android:id="@+id/postCategory"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:hint="선택해주세요" />
     </LinearLayout>
-    <EditText
-        android:id="@+id/postTitle"
-        android:layout_width="match_parent"
-        android:hint="제목을 입력하세요"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:hint="카테고리"
-        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:text="가격"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+        </TextView>
+        <EditText
+            android:id="@+id/postPrice"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
+            android:layout_marginBottom="10dp"
+            android:hint="가격 입력" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:background="@color/black"
-        android:layout_height="1dp"/>
+
     <EditText
-        android:id="@+id/postPrice"
-        android:hint="가격을 입력하세요"
         android:layout_width="match_parent"
-        android:background="@null"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"/>
+        android:hint="태그를 입력하세요(최대 5개)"
+        android:background="@null"
+        android:layout_height="wrap_content">
+
+    </EditText>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera"
+            ></ImageButton>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="작업내용"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
     <EditText
         android:id="@+id/postContent"
+        android:gravity="start"
+        android:padding="10dp"
         android:hint="내용 입력"
         android:layout_width="match_parent"
-        android:background="@null"
-        android:layout_height="wrap_content"/>
+        android:background="@drawable/content_box"
+        android:layout_height="300dp"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/postButton"
+        android:layout_width="match_parent"
+        android:text="등록"
+        android:textColor="@color/white"
+        android:background="@drawable/button_round"
+
+        android:layout_height="wrap_content">
+    </Button>
 
 
 </LinearLayout>

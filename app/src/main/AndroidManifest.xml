@@ -12,7 +12,11 @@
         android:theme="@style/Theme.Gongdonandroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".PostDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".PostActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
@@ -29,9 +33,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"></activity>
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false"></activity>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
