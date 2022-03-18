@@ -23,6 +23,12 @@ interface ApiService {
         @Body jsonparams: Auth
     ) : Call<AuthResult>
 
+    @POST("api/post")
+    @Headers("accept: application/json", "content-type: application/json")
+    fun requestPost(
+        @Body jsonparams: PostArticle
+    ) : Call<PostResult>
+
     @GET("api/post/all")
     @Headers("accept: application/json", "content-type: application/json")
     fun getPostAll() : Call<List<Post>>;

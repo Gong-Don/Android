@@ -62,6 +62,24 @@ data class Post(
     @SerializedName("wrtName")
     val wrtName: String
 )
+data class PostArticle(
+    @SerializedName("category")
+    val category: String,
+    @SerializedName("content")
+    val content: String,
+    @SerializedName("price")
+    val price: Int,
+    @SerializedName("title")
+    val title: String,
+    @SerializedName("wrtId")
+    val wrtId: Int
+)
+data class PostResult(
+    @SerializedName("code")
+    var code:String? = null,
+    @SerializedName("message")
+    var message:String? = null
+)
 enum class Category(val cate: String){
     ALL("전체"),
     DESIGN("디자인"),

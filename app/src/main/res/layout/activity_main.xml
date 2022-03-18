@@ -70,6 +70,7 @@
 
         <ImageButton
             android:layout_width="50dp"
+            android:id="@+id/postArticleButton"
             android:layout_height="50dp"
             android:src="@drawable/ic_add_circle_black_24dp"
             android:layout_marginRight="20dp"
