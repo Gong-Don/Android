@@ -33,16 +33,17 @@ class PostActivity : AppCompatActivity() {
             var title = postTitle.text.toString()
             var price = postPrice.text.toString().toInt()
             var content = postContent.text.toString()
-            var id = 3//나중에 해야함
+
+                //intent.getStringExtra("id").toString()//나중에 해야함
 
             if(title!=""&&postPrice.text.toString()!=""&&content!="") {
-                val data = PostArticle(category, content, price, title,id)
+                val data = PostArticle(category, content, price, title,App.appId)
 
                 retrofitService.requestPost(data).enqueue(object : Callback<PostResult> {
                     override fun onResponse(call: Call<PostResult>, response: Response<PostResult>
                     ) {
-                        Log.d(
-                            "Result", "${response.body()?.code}, ${response.body()?.message}")
+                        Log.e(
+                            "Result", data.toString())
                         Toast.makeText(this@PostActivity, "성공", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@PostActivity, MainActivity::class.java)
                         startActivity(intent)
@@ -84,13 +85,13 @@ class PostActivity : AppCompatActivity() {
 
     private fun mappingLocation(korean: String):String {
         when(korean) {
-            "디자인"-> return "디자인"
+            "디자인"-> return "DESIGN"
             "IT" -> return "IT"
-            "미디어" -> return "미디어"
-            "번역" -> return "번역"
-            "문서" -> return "문서"
-            "스터디"-> return "스터디"
-            else -> return "디자인"
+            "미디어" -> return "MEDIA"
+            "번역" -> return "TRANSLATION"
+            "문서" -> return "DOCUMENT"
+            "스터디"-> return "STUDY"
+            else -> return "DESIGN"
         }
     }
 }

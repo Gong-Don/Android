@@ -16,7 +16,6 @@ import retrofit2.Retrofit
 class SignInActivity : AppCompatActivity() {
     private lateinit var signinService : ApiService;
     private lateinit var retrofit : Retrofit
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
@@ -32,16 +31,28 @@ class SignInActivity : AppCompatActivity() {
             val data = SignIn(id, password)
             signinService.requestLogIn(data).enqueue(object : Callback<SignInResult> {
                 override fun onResponse(call: Call<SignInResult>, response: Response<SignInResult>) {
-                    Log.d("SIGNIN RESULT", "${response.body()?.userId}")
+                    if(response.body()?.userId!=null)
+                    {
+                        val intent = Intent(this@SignInActivity, MainActivity::class.java)
+                        App.appId=response.body()?.userId.toString().toInt()
+                        intent.putExtra("id",response.body()?.userId.toString())
+                        Log.d("SIGNIN RESULT", "${App.appId}")
+                        startActivity(intent)
+                        //finish()
+
+                    }
+                    else
+                    {
+
+                    }
+
                 }
                 override fun onFailure(call: Call<SignInResult>, t: Throwable) {
                     Log.e("SIGNIN", t.message.toString())
                 }
             })
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+
         }
         else
         {
@@ -53,6 +64,7 @@ class SignInActivity : AppCompatActivity() {
                 signinService.requestLogIn(data).enqueue(object : Callback<SignInResult> {
                     override fun onResponse(call: Call<SignInResult>, response: Response<SignInResult>) {
                         Log.d("SIGNIN RESULT", "${response.body()?.userId}")
+                        App.appId=response.body()?.userId.toString().toInt()
                         val auto = getSharedPreferences("autoLogin", MODE_PRIVATE)
                         val autoLoginEdit = auto.edit()
                         autoLoginEdit.putString("id", id)

@@ -3,6 +3,7 @@ package com.example.gong_don_android
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         }
         postArticleButton.setOnClickListener{
             val intent = Intent(this, PostActivity::class.java)
+            Log.e("id",intent.getStringExtra("id").toString())
+            intent.putExtra("id",intent.getStringExtra("id"))
             startActivity(intent)
         }
 
