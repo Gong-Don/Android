@@ -8,6 +8,12 @@
     android:padding="10dp"
     tools:context=".PostDetailActivity">
 
+    <TextView
+        android:id="@+id/postTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +28,7 @@
             android:layout_marginRight="5dp"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Button" />
+            android:text="작성자 프로필" />
 
         <Button
             android:id="@+id/button2"
@@ -31,8 +37,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_round"
             android:textColor="@color/white"
-
-            android:text="Button" />
+            android:text="신청" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,51 +59,50 @@
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
-    <EditText
-        android:id="@+id/postTitle"
-        android:layout_width="match_parent"
-        android:hint="제목을 입력하세요"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:hint="카테고리"
-        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tag_recycler"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/tag"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:background="@color/black"
         android:layout_height="1dp"/>
-    <EditText
-        android:id="@+id/postPrice"
-        android:hint="가격을 입력하세요"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="@null"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"/>
-    <EditText
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:background="@null"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text = "가격"
+            android:textSize="18dp"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:id="@+id/postPrice"
+            android:layout_width="match_parent"
+            android:background="@null"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"/>
+    </LinearLayout>
+
+    <TextView
         android:id="@+id/postContent"
-        android:hint="내용 입력"
         android:layout_width="match_parent"
         android:background="@null"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="18dp"/>
 
 </LinearLayout>

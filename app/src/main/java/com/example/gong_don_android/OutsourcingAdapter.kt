@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
-class OutsourcingAdapter(val postList: List<Post>, private val context: Context) :
+class OutsourcingAdapter(private val context: Context, val postList: List<Post>) :
 RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>()/*, Filterable*/ {
     //var filteredPosts = ArrayList<Post>()
     //var itemFilter = ItemFilter()
@@ -35,7 +35,26 @@ RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>()/*, Filterable*/ {
         holder.bind(postList[position], context)
         //holder.bind(filteredPosts[position], context)
 
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+            notifyDataSetChanged()
+        }
+
     }
+
+    // (2) 리스너 인터페이스
+    interface OnItemClickListener {
+        fun onClick(v: View, id: Int)
+    }
+
+    // (3) 외부에서 클릭 시 이벤트 설정
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+
+        this.itemClickListener = onItemClickListener
+    }
+
+    // (4) setItemClickListener로 설정한 함수 실행
+    private lateinit var itemClickListener: OnItemClickListener
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -50,6 +69,10 @@ RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>()/*, Filterable*/ {
 
         }
     }
+
+
+
+
     //filter
     /*
     override fun getFilter(): Filter {

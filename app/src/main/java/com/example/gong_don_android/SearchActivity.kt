@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gong_don_android.retrofit.ApiService
 import com.example.gong_don_android.retrofit.RetrofitClient
@@ -16,11 +15,8 @@ import retrofit2.Response
 import retrofit2.Call
 
 class SearchActivity : AppCompatActivity() {
-    val categories = arrayListOf(Category.ALL, Category.IT, Category.DESIGN, Category.TRANSLATION, Category.DOCUMENT, Category.STUDY)
+    val categories = arrayListOf(Category.ALL, Category.IT, Category.MEDIA, Category.DESIGN, Category.TRANSLATION, Category.DOCUMENT, Category.STUDY)
     val categoryAdapter = CategoryAdapter(categories)
-
-    //lateinit var outsourcingAdapter: OutsourcingAdapter
-    //lateinit var search_view_post: SearchView
 
     private lateinit var postallService : ApiService;
     private lateinit var postCateService : ApiService;
@@ -29,9 +25,6 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-
-        //search_view_post = findViewById(R.id.search)
-        //search_view_post.setOnQueryTextListener(searchViewTextListener)
 
         initRetrofit()
         postallService.getPostAll().enqueue(object: Callback<List<Post>>{
@@ -101,24 +94,20 @@ class SearchActivity : AppCompatActivity() {
         })
 
     }
-    /*var searchViewTextListener: SearchView.OnQueryTextListener =
-        object : SearchView.OnQueryTextListener {
-            //검색버튼 입력시 호출, 검색버튼이 없으므로 사용하지 않음
-            override fun onQueryTextSubmit(s: String): Boolean {
-                return false
-            }
 
-            //텍스트 입력/수정시에 호출
-            override fun onQueryTextChange(s: String): Boolean {
-                outsourcingAdapter.getFilter().filter(s)
-                Log.d("SEARCH", "SearchVies Text is changed : $s")
-                return false
-            }
-        }*/
     private fun setAdapter(postList : List<Post>){
-        val outsourcingAdapter = OutsourcingAdapter(postList,this)
+        val outsourcingAdapter = OutsourcingAdapter(this, postList)
         outsourcing_list.adapter = outsourcingAdapter
         outsourcing_list.layoutManager = LinearLayoutManager(this)
+
+        outsourcingAdapter.setItemClickListener(object :OutsourcingAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                val intent: Intent = Intent(this@SearchActivity, PostDetailActivity::class.java)
+                intent.putExtra("postId", postList[position].postId)
+                Log.d("POSTID", postList[position].postId.toString())
+                startActivity(intent)
+            }
+        })
     }
     private fun initRetrofit(){
         retrofit = RetrofitClient.create()

@@ -38,8 +38,6 @@ class SignInActivity : AppCompatActivity() {
                         intent.putExtra("id",response.body()?.userId.toString())
                         Log.d("SIGNIN RESULT", "${App.appId}")
                         startActivity(intent)
-                        //finish()
-
                     }
                     else
                     {
@@ -64,7 +62,7 @@ class SignInActivity : AppCompatActivity() {
                 signinService.requestLogIn(data).enqueue(object : Callback<SignInResult> {
                     override fun onResponse(call: Call<SignInResult>, response: Response<SignInResult>) {
                         Log.d("SIGNIN RESULT", "${response.body()?.userId}")
-                        App.appId=response.body()?.userId.toString().toInt()
+                        App.appId= response.body()?.userId.toString().toIntOrNull()!!
                         val auto = getSharedPreferences("autoLogin", MODE_PRIVATE)
                         val autoLoginEdit = auto.edit()
                         autoLoginEdit.putString("id", id)

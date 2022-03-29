@@ -31,7 +31,6 @@ class CategoryAdapter(var datas: ArrayList<Category>): RecyclerView.Adapter<Cate
         val cate = holder.itemView.findViewById<TextView>(R.id.category)
         val cateView : LinearLayout = holder.itemView.findViewById(R.id.category_view)
 
-
         if(col_index==position){
             cateView.setBackgroundResource(R.drawable.cate_selected)
             cate.setTextColor(Color.parseColor("#000000"))

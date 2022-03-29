@@ -95,8 +95,15 @@ data class WorkData(
     val context : String,
     val date : String
 )
+
 data class PostData(
-    val title : String,
-    val context : String,
-    val status : String
+    val category : Category,
+    val content : String,
+    val date : String,
+    val likeCnt: Int,
+    val price: Int,
+    val tags: ArrayList<String>,
+    val title: String,
+    val wrtId: Int,
+    val wrtName: String
 )
