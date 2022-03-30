@@ -8,37 +8,67 @@
     android:padding="10dp"
     tools:context=".PostDetailActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+            <ImageButton
+                android:id="@+id/back_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_arrow_back_black_24dp">
+            </ImageButton>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/button"
+                android:background="@drawable/button_round"
+                android:layout_width="150dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="작성자 프로필" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="150dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_round"
+                android:textColor="@color/white"
+                android:text="신청" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/postCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"/>
+
     <TextView
         android:id="@+id/postTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button"
-            android:background="@drawable/button_round"
-            android:layout_width="150dp"
-            android:layout_marginRight="5dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="작성자 프로필" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="150dp"
-            android:layout_marginLeft="5dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_round"
-            android:textColor="@color/white"
-            android:text="신청" />
-    </LinearLayout>
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,15 +93,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        android:layout_marginVertical="5dp">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tag_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:textAlignment="center"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/tag"/>
+            tools:listitem="@layout/tag" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -81,21 +112,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
-            android:background="@null"
-            android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
-            android:text = "가격"
-            android:textSize="18dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:text="가격"
+            android:textSize="16dp" />
         <TextView
             android:id="@+id/postPrice"
             android:layout_width="match_parent"
             android:background="@null"
             android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
-            android:textSize="18dp"/>
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <TextView
@@ -103,6 +135,6 @@
         android:layout_width="match_parent"
         android:background="@null"
         android:layout_height="wrap_content"
-        android:textSize="18dp"/>
+        android:textSize="15dp"/>
 
 </LinearLayout>

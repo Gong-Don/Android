@@ -15,17 +15,18 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.category_list.view.*
+import kotlinx.android.synthetic.main.tag.view.*
 
 class TagAdapter(var datas: ArrayList<String>): RecyclerView.Adapter<TagAdapter.ListAdapter>() {
     class ListAdapter(val layout: View) : RecyclerView.ViewHolder(layout)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListAdapter {
         return ListAdapter(
-            LayoutInflater.from(parent.context).inflate(R.layout.category_list, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.tag, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: ListAdapter, position: Int) {
+        holder.layout.taglist.text = datas[position]
     }
 
     override fun getItemCount(): Int {

@@ -3,16 +3,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/tag_view"
     android:layout_width="wrap_content"
-    android:layout_height="40dp"
+    android:layout_height="35dp"
     android:layout_marginHorizontal="3dp"
     android:background="@drawable/tag_edge">
     <TextView
-        android:id="@+id/tag"
+        android:id="@+id/taglist"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center_vertical"
+        android:layout_height="35dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text = "aaaaaa"
         android:textColor="#000"
-        android:textSize="18dp"/>
+        android:textSize="15dp"/>
 </LinearLayout>

@@ -36,6 +36,7 @@ class PostDetailActivity : AppCompatActivity() {
                     setAdapter(post.tags)
                     postTitle.text = post.title
                     postContent.text = post.content
+                    postCategory.text = mappingLocation(post.category.toString())
                     postPrice.text = post.price.toString()
                 }
             }
@@ -46,10 +47,24 @@ class PostDetailActivity : AppCompatActivity() {
     }
     private fun setAdapter(tagList : ArrayList<String>){
         val tagAdapter = TagAdapter(tagList)
+        tag_recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        tag_recycler.adapter = tagAdapter
+        Log.d("TAG COUNT", tagAdapter.getItemCount().toString())
     }
     private fun initRetrofit(){
         retrofit = RetrofitClient.create()
         postdetailService = retrofit.create(ApiService::class.java)
         postdetailService = retrofit.create(ApiService::class.java)
+    }
+    private fun mappingLocation(english: String):String {
+        when(english) {
+            "DESIGN" -> return "디자인"
+            "IT" -> return "IT"
+            "MEDIA" -> return "미디어"
+            "TRANSLATION" -> return "번역"
+            "DOCUMENT" -> return "문서"
+            "STUDY" -> return "스터디"
+            else -> return "디자인"
+        }
     }
 }
