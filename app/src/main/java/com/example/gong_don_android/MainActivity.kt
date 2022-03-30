@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         }
         postArticleButton.setOnClickListener{
             val intent = Intent(this, PostActivity::class.java)
-            Log.e("id",intent.getStringExtra("id").toString())
-            intent.putExtra("id",intent.getStringExtra("id"))
             startActivity(intent)
         }
 
