@@ -80,7 +80,6 @@ class PostActivity : AppCompatActivity() {
             }
         }
 
-
         postCategory.setOnClickListener(){
             locationClicked()
         }
@@ -99,11 +98,10 @@ class PostActivity : AppCompatActivity() {
                         Log.e(
                             "Result", data.toString())
                         Toast.makeText(this@PostActivity, "성공", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@PostActivity, MainActivity::class.java)
-                        startActivity(intent)
+                        //val intent = Intent(this@PostActivity, SearchActivity::class.java)
+                        //startActivity(intent)
                         finish()
                     }
-
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         Log.e("Post", t.message.toString())
                     }
