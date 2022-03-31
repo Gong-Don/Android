@@ -34,8 +34,8 @@
         android:background="@drawable/search_edge"
         android:drawableLeft="@drawable/ic_search_black_24dp"
         android:drawablePadding="10dp"
-        android:paddingLeft="10dp"
         android:gravity="center_vertical"
+        android:paddingLeft="10dp"
         android:text="검색어 입력"
         android:textColor="#8F9090"
         android:textSize="18sp"></TextView>

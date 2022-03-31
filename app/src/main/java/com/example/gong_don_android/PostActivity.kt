@@ -26,10 +26,12 @@ class PostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
+
         //var items = arrayOf("SM3", "SM5", "SM7", "SONATA", "AVANTE", "SOUL", "K5", "K7")
         var items : List<String?>
         items = ArrayList<String>()
         var tags = ArrayList<String>()
+
 
         initRetrofit()
 

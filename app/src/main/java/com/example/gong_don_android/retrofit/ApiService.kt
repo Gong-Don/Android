@@ -42,4 +42,10 @@ interface ApiService {
     fun getPostCategory(
        @Path("category") category : String
     ) : Call<List<Post>>;
+
+    @GET("api/post/{postId}")
+    @Headers("accept: application/json", "content-type: application/json")
+    fun getPost(
+        @Path("postId") postId : Int
+    ) : Call<PostData>;
 }
