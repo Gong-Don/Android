@@ -1,6 +1,7 @@
 package com.example.gong_don_android
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -32,6 +33,9 @@ class PostActivity : AppCompatActivity() {
         var tags = ArrayList<String>()
 
         initRetrofit()
+        /*scrollView.setOnClickListener{
+            tagSearch.isFocusable=true
+        }*/
 
         retrofitService.getTagAll().enqueue(object: Callback<HashMap<String,Int>>{
             override fun onResponse(call: Call<HashMap<String,Int>>, response: Response<HashMap<String,Int>>) {
@@ -49,9 +53,9 @@ class PostActivity : AppCompatActivity() {
             }
         })
         var adapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, items)
-        tagSearch.setOnItemClickListener { adapterView, view, i, l ->
+        /*tagSearch.setOnItemClickListener { adapterView, view, i, l ->
             tags.add(adapterView.getItemAtPosition(i).toString())
-        }
+        }*/
         tagSearch.setAdapter(adapter)
 
         tagPlusBtn.setOnClickListener{
@@ -64,18 +68,25 @@ class PostActivity : AppCompatActivity() {
                     Toast.makeText(this, "5개 이상 ㄴ", Toast.LENGTH_SHORT).show()
                 }
                 else {
+
                     //if(!tagSearch.isVisible)
                         //tagSearch.isVisible=true
                     postChipGroup.addView(Chip(this).apply {
                         text = now
                         isCloseIconVisible = true
+                        setTextColor(Color.parseColor("#4C86F0"))
                         setOnCloseIconClickListener {
-                            tags.remove(it.toString())
+                            val chip: Chip? = it as Chip
+                            if (chip != null) {
+                                tags.remove(chip.text.toString())
+                            }
                             postChipGroup.removeView(this) }
                     })
+                    tags.add(now.toString())
                     tagSearch.setText("")
                 }
             }
+            Log.e("tagsList",tags.toString())
         }
 
 
@@ -87,7 +98,7 @@ class PostActivity : AppCompatActivity() {
             var title = postTitle.text.toString()
             var price = postPrice.text.toString().toInt()
             var content = postContent.text.toString()
-
+            
             if(title!=""&&postPrice.text.toString()!=""&&content!="") {
                 val data = PostArticle(category, content, price, tags,title,App.appId)
 
@@ -95,7 +106,7 @@ class PostActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<PostResult>, response: Response<PostResult>
                     ) {
                         Log.e(
-                            "Result", data.toString())
+                            "Post Result", data.toString())
                         Toast.makeText(this@PostActivity, "성공", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@PostActivity, MainActivity::class.java)
                         startActivity(intent)
