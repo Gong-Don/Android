@@ -69,6 +69,8 @@ data class PostArticle(
     val content: String,
     @SerializedName("price")
     val price: Int,
+    @SerializedName("tags")
+    val tags: ArrayList<String>,
     @SerializedName("title")
     val title: String,
     @SerializedName("wrtId")

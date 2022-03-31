@@ -1,15 +1,19 @@
 package com.example.gong_don_android
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
+import androidx.core.view.size
 import com.example.gong_don_android.retrofit.ApiService
 import com.example.gong_don_android.retrofit.RetrofitClient
+import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_post.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +27,60 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
+        //var items = arrayOf("SM3", "SM5", "SM7", "SONATA", "AVANTE", "SOUL", "K5", "K7")
+        var items : List<String?>
+        items = ArrayList<String>()
+        var tags = ArrayList<String>()
+
+
         initRetrofit()
+
+        retrofitService.getTagAll().enqueue(object: Callback<HashMap<String,Int>>{
+            override fun onResponse(call: Call<HashMap<String,Int>>, response: Response<HashMap<String,Int>>) {
+                if(response.isSuccessful) {
+                    var temp : List<String?>
+                    temp=ArrayList(response.body()!!.keys)
+                    for(i in 0 until temp.size) {
+                        items.add(temp[i].toString())
+                    }
+                    Log.e("tagSearch",items.toString())//해야할일 버튼 제일 오른쪽으로...  ,chip색깔 바꾸기 ,자동완성 좌우 꽉차게, 서버 그냥 string주게 하기...
+                }
+            }
+            override fun onFailure(call: Call<HashMap<String,Int>>, t: Throwable) {
+                Log.d("TagTALL RESULT", t.toString())
+            }
+        })
+        var adapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, items)
+        tagSearch.setOnItemClickListener { adapterView, view, i, l ->
+            tags.add(adapterView.getItemAtPosition(i).toString())
+        }
+        tagSearch.setAdapter(adapter)
+
+        tagPlusBtn.setOnClickListener{
+            val now = tagSearch.text
+            if(now==null)
+                Toast.makeText(this,"입력해주세요",Toast.LENGTH_SHORT).show()
+            else {
+                if(postChipGroup.size==5) {
+                    //tagSearch.isGone=true
+                    Toast.makeText(this, "5개 이상 ㄴ", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    //if(!tagSearch.isVisible)
+                        //tagSearch.isVisible=true
+                    postChipGroup.addView(Chip(this).apply {
+                        text = now
+                        isCloseIconVisible = true
+                        setOnCloseIconClickListener {
+                            tags.remove(it.toString())
+                            postChipGroup.removeView(this) }
+                    })
+                    tagSearch.setText("")
+                }
+            }
+        }
+
+
         postCategory.setOnClickListener(){
             locationClicked()
         }
@@ -33,10 +90,8 @@ class PostActivity : AppCompatActivity() {
             var price = postPrice.text.toString().toInt()
             var content = postContent.text.toString()
 
-                //intent.getStringExtra("id").toString()//나중에 해야함
-
             if(title!=""&&postPrice.text.toString()!=""&&content!="") {
-                val data = PostArticle(category, content, price, title,App.appId)
+                val data = PostArticle(category, content, price, tags,title,App.appId)
 
                 retrofitService.requestPost(data).enqueue(object : Callback<PostResult> {
                     override fun onResponse(call: Call<PostResult>, response: Response<PostResult>

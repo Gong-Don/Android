@@ -35,9 +35,9 @@ class SignInActivity : AppCompatActivity() {
                     {
                         val intent = Intent(this@SignInActivity, MainActivity::class.java)
                         App.appId=response.body()?.userId.toString().toInt()
-                        intent.putExtra("id",response.body()?.userId.toString())
                         Log.d("SIGNIN RESULT", "${App.appId}")
                         startActivity(intent)
+
                     }
                     else
                     {

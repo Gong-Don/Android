@@ -33,6 +33,10 @@ interface ApiService {
     @Headers("accept: application/json", "content-type: application/json")
     fun getPostAll() : Call<List<Post>>;
 
+    @GET("api/tag/all")
+    @Headers("accept: application/json", "content-type: application/json")
+    fun getTagAll() : Call<HashMap<String,Int>>;
+
     @GET("api/post/category/{category}")
     @Headers("accept: application/json", "content-type: application/json")
     fun getPostCategory(
