@@ -29,23 +29,24 @@
                 android:background="@drawable/ic_arrow_back_black_24dp">
             </ImageButton>
         </LinearLayout>
-        <SearchView
+
+        <EditText
             android:id="@+id/search"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight="9"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
+            android:layout_weight="9"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
             android:background="@drawable/search_edge"
             android:drawablePadding="10dp"
-            android:paddingLeft="10dp"
-            android:hint="검색어 입력"
             android:inputType="textMultiLine"
+            android:hint="검색어 입력"
+            android:paddingLeft="10dp"
             android:singleLine="false"
-            android:textColor="#000000"
-            android:textSize="18sp">
-        </SearchView>
+            android:textColor="#000"
+            android:textSize="18sp"></EditText>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -58,9 +59,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+        android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/outsourcing_list"
             android:layout_width="match_parent"
@@ -70,8 +69,7 @@
             tools:listitem="@layout/outsourcing_list"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="20dp" />
+            app:layout_constraintRight_toRightOf="parent"/>
     </LinearLayout>
 
     <LinearLayout
@@ -84,6 +82,7 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
         <ImageButton
+            android:id="@+id/postArticleButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_add_circle_black_24dp"

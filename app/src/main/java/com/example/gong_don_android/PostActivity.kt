@@ -27,10 +27,12 @@ class PostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
+
         //var items = arrayOf("SM3", "SM5", "SM7", "SONATA", "AVANTE", "SOUL", "K5", "K7")
         var items : List<String?>
         items = ArrayList<String>()
         var tags = ArrayList<String>()
+
 
         initRetrofit()
         /*scrollView.setOnClickListener{
@@ -89,7 +91,6 @@ class PostActivity : AppCompatActivity() {
             Log.e("tagsList",tags.toString())
         }
 
-
         postCategory.setOnClickListener(){
             locationClicked()
         }
@@ -108,11 +109,10 @@ class PostActivity : AppCompatActivity() {
                         Log.e(
                             "Post Result", data.toString())
                         Toast.makeText(this@PostActivity, "성공", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@PostActivity, MainActivity::class.java)
-                        startActivity(intent)
+                        //val intent = Intent(this@PostActivity, SearchActivity::class.java)
+                        //startActivity(intent)
                         finish()
                     }
-
                     override fun onFailure(call: Call<PostResult>, t: Throwable) {
                         Log.e("Post", t.message.toString())
                     }
