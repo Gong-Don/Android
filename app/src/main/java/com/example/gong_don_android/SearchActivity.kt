@@ -5,14 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.CompoundButton
-import android.widget.ToggleButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gong_don_android.retrofit.ApiService
 import com.example.gong_don_android.retrofit.RetrofitClient
 import kotlinx.android.synthetic.main.activity_search.*
-import kotlinx.android.synthetic.main.outsourcing_list.*
-import kotlinx.android.synthetic.main.outsourcing_list.view.*
 import retrofit2.Retrofit
 import retrofit2.Callback
 import retrofit2.Response
@@ -95,6 +91,11 @@ class SearchActivity : AppCompatActivity() {
         back_btn.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+        postArticleButton.setOnClickListener{
+            val intent = Intent(this, PostActivity::class.java)
+            startActivity(intent)
+            //finish()
         }
     }
 

@@ -19,12 +19,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
         }
-        postArticleButton.setOnClickListener{
-            val intent = Intent(this, PostActivity::class.java)
-            startActivity(intent)
-        }
-
-
     }
     private fun initRecycler() {
         workAdapter = WorkAdapter(this)
