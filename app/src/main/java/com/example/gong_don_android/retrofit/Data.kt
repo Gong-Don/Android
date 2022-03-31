@@ -107,3 +107,8 @@ data class PostData(
     val wrtId: Int,
     val wrtName: String
 )
+
+class likeBtnData(
+    var id: Int,
+    var checked: Boolean
+)

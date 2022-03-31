@@ -96,10 +96,6 @@ class SearchActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-        like_btn.setOnCheckedChangeListener{ _, isChecked ->
-            if(isChecked) like_btn.setBackgroundColor(R.drawable.ic_favorite_black_24dp)
-            else like_btn.setBackgroundColor(R.drawable.ic_favorite_border_black_24dp)
-        }
     }
 
     private fun setAdapter(postList : List<Post>){

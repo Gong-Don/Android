@@ -53,14 +53,13 @@
                 android:layout_width="0dp"
                 android:layout_weight="9.5"
                 android:layout_height="30dp"/>
-            <ToggleButton
+            <CheckBox
                 android:id="@+id/like_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:textOff=""
-                android:textOn=""
-                android:background="@drawable/ic_favorite_border_black_24dp">
-            </ToggleButton>
+                android:button="@null"
+                android:background="@drawable/like_checkbox">
+            </CheckBox>
 
         </LinearLayout>
 
