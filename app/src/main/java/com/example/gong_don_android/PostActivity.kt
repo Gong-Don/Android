@@ -23,7 +23,6 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
-
         initRetrofit()
         postCategory.setOnClickListener(){
             locationClicked()

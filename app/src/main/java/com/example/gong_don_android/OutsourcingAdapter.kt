@@ -12,6 +12,7 @@ import android.widget.Filterable
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.outsourcing_list.*
 
 class OutsourcingAdapter(private val context: Context, val postList: List<Post>) :
 RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>()/*, Filterable*/ {
@@ -23,7 +24,8 @@ RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>()/*, Filterable*/ {
     }
     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.outsourcing_list, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.outsourcing_list, parent, false)\
+
         return ViewHolder(view)
     }
     override fun getItemCount(): Int {

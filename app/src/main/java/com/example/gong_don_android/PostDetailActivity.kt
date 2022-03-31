@@ -10,7 +10,6 @@ import com.example.gong_don_android.retrofit.ApiService
 import com.example.gong_don_android.retrofit.RetrofitClient
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import kotlinx.android.synthetic.main.activity_post_detail.view.*
-import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.tag.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,7 +43,13 @@ class PostDetailActivity : AppCompatActivity() {
                 Log.d("GETPOST RESULT", t.toString())
             }
         })
+
+        back_btn.setOnClickListener{
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
+
     private fun setAdapter(tagList : ArrayList<String>){
         val tagAdapter = TagAdapter(tagList)
         tag_recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

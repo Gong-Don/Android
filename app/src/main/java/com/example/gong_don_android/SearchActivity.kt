@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.CompoundButton
+import android.widget.ToggleButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gong_don_android.retrofit.ApiService
 import com.example.gong_don_android.retrofit.RetrofitClient
 import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.outsourcing_list.*
+import kotlinx.android.synthetic.main.outsourcing_list.view.*
 import retrofit2.Retrofit
 import retrofit2.Callback
 import retrofit2.Response
@@ -46,10 +50,6 @@ class SearchActivity : AppCompatActivity() {
 
         category_recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         category_recycler.adapter=categoryAdapter
-        back_btn.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
 
         categoryAdapter.setItemClickListener(object :CategoryAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
@@ -92,7 +92,14 @@ class SearchActivity : AppCompatActivity() {
                 //Toast.makeText(this@SearchActivity, "${categories[position].toString()}", Toast.LENGTH_SHORT).show()
             }
         })
-
+        back_btn.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        like_btn.setOnCheckedChangeListener{ _, isChecked ->
+            if(isChecked) like_btn.setBackgroundColor(R.drawable.ic_favorite_black_24dp)
+            else like_btn.setBackgroundColor(R.drawable.ic_favorite_border_black_24dp)
+        }
     }
 
     private fun setAdapter(postList : List<Post>){
