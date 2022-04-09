@@ -60,7 +60,14 @@
                 android:button="@null"
                 android:background="@drawable/like_checkbox">
             </CheckBox>
-
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:text="1"
+                android:textColor="#000"
+                android:textSize="16dp" />
         </LinearLayout>
 
 

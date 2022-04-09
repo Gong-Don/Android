@@ -38,6 +38,7 @@ class PostDetailActivity : AppCompatActivity() {
                     postContent.text = post.content
                     postCategory.text = mappingLocation(post.category.toString())
                     postPrice.text = post.price.toString()
+                    postDate.text = post.date
                     setFileAdapter(post.files)
                 }
             }

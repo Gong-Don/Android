@@ -53,12 +53,14 @@ RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>(){
         private val txtName: TextView = itemView.findViewById(R.id.outsourcing_name)
         private val txtContent: TextView = itemView.findViewById(R.id.outsourcing_context)
         private val txtState: TextView = itemView.findViewById(R.id.outsourcing_state)
+        private val txtLikeCnt: TextView = itemView.findViewById(R.id.like_count)
 
         val heart_btn: CheckBox = itemView.findViewById(R.id.like_btn)
 
         fun bind(item: Post, num: Int) {
             txtName.text = item.title
             txtContent.text = item.content
+            txtLikeCnt.text = item.likeCnt.toString()
             txtState.text = item.matchingStatus.toString()
 
             if(num >= checkboxList.size){
