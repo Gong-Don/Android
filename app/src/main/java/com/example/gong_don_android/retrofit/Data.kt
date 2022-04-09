@@ -102,6 +102,7 @@ data class PostData(
     val category : Category,
     val content : String,
     val date : String,
+    val files : ArrayList<FileData>,
     val likeCnt: Int,
     val price: Int,
     val tags: ArrayList<String>,
@@ -110,7 +111,12 @@ data class PostData(
     val wrtName: String
 )
 
-class likeBtnData(
+class LikeBtnData(
     var id: Int,
     var checked: Boolean
+)
+
+class FileData(
+    val name : String,
+    val url : String
 )

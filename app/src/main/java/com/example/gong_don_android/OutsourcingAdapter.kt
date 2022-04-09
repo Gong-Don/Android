@@ -23,7 +23,7 @@ RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>(){
     override fun getItemCount(): Int {
         return postList.count()
     }
-    var checkboxList = arrayListOf<likeBtnData>()
+    var checkboxList = arrayListOf<LikeBtnData>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(postList[position], position)
@@ -62,7 +62,7 @@ RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>(){
             txtState.text = item.matchingStatus.toString()
 
             if(num >= checkboxList.size){
-                checkboxList.add(num, likeBtnData(item.postId, false))
+                checkboxList.add(num, LikeBtnData(item.postId, false))
             }
 
             heart_btn.isChecked = checkboxList[num].checked
