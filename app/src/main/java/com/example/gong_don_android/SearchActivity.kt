@@ -118,5 +118,4 @@ class SearchActivity : AppCompatActivity() {
         postallService = retrofit.create(ApiService::class.java)
         postCateService = retrofit.create(ApiService::class.java)
     }
-
 }

@@ -15,6 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import java.io.File
 
 class PostDetailActivity : AppCompatActivity() {
     private lateinit var postdetailService : ApiService;
@@ -37,6 +38,7 @@ class PostDetailActivity : AppCompatActivity() {
                     postContent.text = post.content
                     postCategory.text = mappingLocation(post.category.toString())
                     postPrice.text = post.price.toString()
+                    setFileAdapter(post.files)
                 }
             }
             override fun onFailure(call: Call<PostData>, t: Throwable) {
@@ -54,7 +56,13 @@ class PostDetailActivity : AppCompatActivity() {
         val tagAdapter = TagAdapter(tagList)
         tag_recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         tag_recycler.adapter = tagAdapter
-        Log.d("TAG COUNT", tagAdapter.getItemCount().toString())
+        Log.d("TAG COUNT", tagAdapter.itemCount.toString())
+    }
+    private fun setFileAdapter(fileList : ArrayList<FileData>){
+        val fileAdapter = FileAdapter(this, fileList)
+        file_recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        file_recycler.adapter = fileAdapter
+        Log.d("FILE COUNT", fileAdapter.itemCount.toString())
     }
     private fun initRetrofit(){
         retrofit = RetrofitClient.create()
