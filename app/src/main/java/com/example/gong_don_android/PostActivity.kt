@@ -1,13 +1,10 @@
 package com.example.gong_don_android
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.core.view.size
 import com.example.gong_don_android.retrofit.ApiService
 import com.example.gong_don_android.retrofit.RetrofitClient
@@ -80,12 +77,12 @@ class PostActivity : AppCompatActivity() {
             }
         }
 
-        postCategory.setOnClickListener(){
+        tv_cate_post_detail.setOnClickListener(){
             locationClicked()
         }
 
         postButton.setOnClickListener() {
-            var title = postTitle.text.toString()
+            var title = tv_title_post_detail.text.toString()
             var price = postPrice.text.toString().toInt()
             var content = postContent.text.toString()
 
@@ -129,7 +126,7 @@ class PostActivity : AppCompatActivity() {
         val items = arrayOf("디자인","IT","미디어","번역","문서","스터디")
         MaterialAlertDialogBuilder(this)
             .setItems(items) { dialog, which ->
-                postCategory.text = items[which]
+                tv_cate_post_detail.text = items[which]
                 category = mappingLocation(items[which])
             }
             .show()

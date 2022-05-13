@@ -4,7 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
+import android.widget.Switch
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gong_don_android.retrofit.ApiService
 import com.example.gong_don_android.retrofit.RetrofitClient
@@ -15,7 +18,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
-import java.io.File
 
 class PostDetailActivity : AppCompatActivity() {
     private lateinit var postdetailService : ApiService;
@@ -34,11 +36,11 @@ class PostDetailActivity : AppCompatActivity() {
                     Log.d("GETPOST RESULT", response.body().toString())
                     var post = response.body()!!
                     setAdapter(post.tags)
-                    postTitle.text = post.title
+                    tv_title_post_detail.text = post.title
                     postContent.text = post.content
-                    postCategory.text = mappingLocation(post.category.toString())
+                    tv_cate_post_detail.text = mappingLocation(post.category.toString())
                     postPrice.text = post.price.toString()
-                    postDate.text = post.date
+                    tv_date_post_detail.text = post.date
                     setFileAdapter(post.files)
                 }
             }
@@ -47,10 +49,20 @@ class PostDetailActivity : AppCompatActivity() {
             }
         })
 
-        back_btn.setOnClickListener{
-            val intent = Intent(this, SearchActivity::class.java)
-            startActivity(intent)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_post_detail)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home ->{
+                val intent = Intent(this, SearchActivity::class.java)
+                startActivity(intent)
+                return true
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setAdapter(tagList : ArrayList<String>){

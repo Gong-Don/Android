@@ -85,7 +85,6 @@ class SearchActivity : AppCompatActivity() {
                         }
                     })
                 }
-                //Toast.makeText(this@SearchActivity, "${categories[position].toString()}", Toast.LENGTH_SHORT).show()
             }
         })
         back_btn.setOnClickListener{

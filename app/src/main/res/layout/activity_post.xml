@@ -21,7 +21,7 @@
 
         </TextView>
         <EditText
-            android:id="@+id/postTitle"
+            android:id="@+id/tv_title_post_detail"
             android:layout_width="match_parent"
             android:textSize="18sp"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
 
         </TextView>
         <TextView
-            android:id="@+id/postCategory"
+            android:id="@+id/tv_cate_post_detail"
             android:layout_width="match_parent"
             android:textSize="18sp"
             android:layout_height="wrap_content"

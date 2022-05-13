@@ -71,19 +71,17 @@
         android:background="#e9e9e9"></View>
 
 
-
     <Button
         android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:background="#3843A2"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/outsourcing_state_edge"
         android:text="로그인"
         android:textColor="#ffffff"
         android:textSize="16sp"
-        android:textStyle="bold">
-    </Button>
+        android:textStyle="bold"></Button>
 
     <LinearLayout
         android:layout_width="wrap_content"
