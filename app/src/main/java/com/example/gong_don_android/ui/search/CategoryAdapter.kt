@@ -1,28 +1,24 @@
-package com.example.gong_don_android
+package com.example.gong_don_android.ui.search
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
-import android.util.Log
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.Dimension
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.category_list.view.*
+import com.example.gong_don_android.Category
+import com.example.gong_don_android.R
+import kotlinx.android.synthetic.main.item_category.view.*
 
 class CategoryAdapter(var datas: ArrayList<Category>): RecyclerView.Adapter<CategoryAdapter.ListAdapter>() {
     var col_index : Int = 0
     class ListAdapter(val layout: View) : RecyclerView.ViewHolder(layout)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListAdapter {
         return ListAdapter(
-            LayoutInflater.from(parent.context).inflate(R.layout.category_list, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_category, parent, false)
         )
     }
 

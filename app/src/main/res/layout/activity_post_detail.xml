@@ -14,6 +14,8 @@
             android:id="@+id/toolbar_post_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <Button
@@ -88,7 +90,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title_post_detail"
-                tools:listitem="@layout/tag" />
+                tools:listitem="@layout/item_tag" />
 
             <TextView
                 android:id="@+id/tv_price"
@@ -146,7 +148,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/postContent"
-                tools:listitem="@layout/file_list" />
+                tools:listitem="@layout/item_file" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

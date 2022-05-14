@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.gong_don_android.retrofit.ApiService
-import com.example.gong_don_android.retrofit.RetrofitClient
+import com.example.gong_don_android.network.ApiService
+import com.example.gong_don_android.network.RetrofitClient
 import kotlinx.android.synthetic.main.activity_log_in.*
 import retrofit2.Call
 import retrofit2.Callback

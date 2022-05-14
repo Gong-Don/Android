@@ -1,4 +1,4 @@
-package com.example.gong_don_android.retrofit
+package com.example.gong_don_android.network
 
 import com.example.gong_don_android.*
 import retrofit2.Call
@@ -48,4 +48,6 @@ interface ApiService {
     fun getPost(
         @Path("postId") postId : Int
     ) : Call<PostData>;
+
+
 }

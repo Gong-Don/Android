@@ -1,23 +1,17 @@
 package com.example.gong_don_android
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.widget.ButtonBarLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.outsourcing_list.*
 
 class OutsourcingAdapter(private val context: Context, val postList: List<Post>) :
 RecyclerView.Adapter<OutsourcingAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.outsourcing_list, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_outsource, parent, false)
         return ViewHolder(view)
     }
     override fun getItemCount(): Int {

@@ -1,4 +1,4 @@
-package com.example.gong_don_android.retrofit
+package com.example.gong_don_android.network
 
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
@@ -18,5 +18,4 @@ object RetrofitClient {
         }
         return instance!!
     }
-
 }

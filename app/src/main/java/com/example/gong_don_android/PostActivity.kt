@@ -6,8 +6,8 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.size
-import com.example.gong_don_android.retrofit.ApiService
-import com.example.gong_don_android.retrofit.RetrofitClient
+import com.example.gong_don_android.network.ApiService
+import com.example.gong_don_android.network.RetrofitClient
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_post.*

@@ -1,15 +1,14 @@
 package com.example.gong_don_android
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Toast
-import com.example.gong_don_android.retrofit.ApiService
-import com.example.gong_don_android.retrofit.RetrofitClient
+import com.example.gong_don_android.network.ApiService
+import com.example.gong_don_android.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

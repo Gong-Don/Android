@@ -13,7 +13,7 @@ RecyclerView.Adapter<WorkAdapter.ViewHolder>() {
 
     var datas = mutableListOf<WorkData>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.work_list, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_work, parent, false)
         return ViewHolder(view)
     }
 

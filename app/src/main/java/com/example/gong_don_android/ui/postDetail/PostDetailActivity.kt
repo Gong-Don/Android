@@ -1,19 +1,17 @@
-package com.example.gong_don_android
+package com.example.gong_don_android.ui.postDetail
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.view.View
-import android.widget.Switch
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.gong_don_android.retrofit.ApiService
-import com.example.gong_don_android.retrofit.RetrofitClient
+import com.example.gong_don_android.*
+import com.example.gong_don_android.network.ApiService
+import com.example.gong_don_android.network.RetrofitClient
+import com.example.gong_don_android.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_post_detail.*
-import kotlinx.android.synthetic.main.activity_post_detail.view.*
-import kotlinx.android.synthetic.main.tag.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,6 +52,7 @@ class PostDetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             android.R.id.home ->{
@@ -83,14 +82,14 @@ class PostDetailActivity : AppCompatActivity() {
         postdetailService = retrofit.create(ApiService::class.java)
     }
     private fun mappingLocation(english: String):String {
-        when(english) {
-            "DESIGN" -> return "디자인"
-            "IT" -> return "IT"
-            "MEDIA" -> return "미디어"
-            "TRANSLATION" -> return "번역"
-            "DOCUMENT" -> return "문서"
-            "STUDY" -> return "스터디"
-            else -> return "디자인"
+        return when(english) {
+            "DESIGN" -> "디자인"
+            "IT" -> "IT"
+            "MEDIA" -> "미디어"
+            "TRANSLATION" -> "번역"
+            "DOCUMENT" -> "문서"
+            "STUDY" -> "스터디"
+            else -> "디자인"
         }
     }
 }
